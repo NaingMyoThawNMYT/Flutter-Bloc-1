@@ -34,9 +34,57 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Text(
-          'Flutter Bloc 1',
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                color: Colors.black,
+              ),
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: Colors.yellow,
+                    child: Text('Yellow'),
+                  ),
+                ),
+                SizedBox(
+                  width: 8.0,
+                ),
+                Expanded(
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: Colors.green,
+                    child: Text('Green'),
+                  ),
+                ),
+                SizedBox(
+                  width: 8.0,
+                ),
+                Expanded(
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: Colors.red,
+                    child: Text('Red'),
+                  ),
+                ),
+                SizedBox(
+                  width: 8.0,
+                ),
+                Expanded(
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: Colors.blue,
+                    child: Text('Blue'),
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );

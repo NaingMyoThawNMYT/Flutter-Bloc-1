@@ -3,3 +3,4 @@
 2. "flutter_bloc" dependency is added.
 3. "color" block package is added for color changing.
 4. Added one container to show selected color and added four buttons to change the color.
+5. UI and block are connected.

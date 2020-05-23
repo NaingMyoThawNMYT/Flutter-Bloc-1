@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutterbloc1/bloc/color/color_bloc.dart';
+import 'package:flutterbloc1/bloc/color/color_event.dart';
+import 'package:flutterbloc1/bloc/color/color_state.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,13 +11,19 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ColorBloc>(create: (BuildContext context) => ColorBloc()),
+        // add another blocs here...
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: MyHomePage(title: 'Flutter Demo Home Page'),
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -30,6 +40,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    // ignore: close_sinks
+    final ColorBloc colorBloc = BlocProvider.of<ColorBloc>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -39,15 +51,23 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             Expanded(
-              child: Container(
-                color: Colors.black,
+              child: BlocBuilder<ColorBloc, ColorState>(
+                builder: (context, state) {
+                  return Container(
+                    color: (state is ChangeColorState)
+                        ? state.color
+                        : Colors.black,
+                  );
+                },
               ),
             ),
             Row(
               children: <Widget>[
                 Expanded(
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      colorBloc.add(ChangeColorEvent(color: Colors.yellow));
+                    },
                     color: Colors.yellow,
                     child: Text('Yellow'),
                   ),
@@ -57,7 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Expanded(
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      colorBloc.add(ChangeColorEvent(color: Colors.green));
+                    },
                     color: Colors.green,
                     child: Text('Green'),
                   ),
@@ -67,7 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Expanded(
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      colorBloc.add(ChangeColorEvent(color: Colors.red));
+                    },
                     color: Colors.red,
                     child: Text('Red'),
                   ),
@@ -77,7 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Expanded(
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      colorBloc.add(ChangeColorEvent(color: Colors.blue));
+                    },
                     color: Colors.blue,
                     child: Text('Blue'),
                   ),

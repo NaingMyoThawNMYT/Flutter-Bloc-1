@@ -1,2 +1,4 @@
 23/05/2020
 1. Initial commit
+2. "flutter_bloc" dependency is added.
+3. "color" block package is added for color changing.

@@ -1,6 +1,11 @@
 23/05/2020
+----------
 1. Initial commit
 2. "flutter_bloc" dependency is added.
 3. "color" block package is added for color changing.
 4. Added one container to show selected color and added four buttons to change the color.
 5. UI and block are connected.
+
+24/05/2020
+----------
+1. "bloc.dart" file is added under "bloc\color". Purpose is to reduce import statements.

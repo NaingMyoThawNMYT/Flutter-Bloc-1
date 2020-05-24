@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutterbloc1/bloc/color/color_event.dart';
-import 'package:flutterbloc1/bloc/color/color_state.dart';
+import 'bloc.dart';
 
 class ColorBloc extends Bloc<ColorEvent, ColorState> {
   @override

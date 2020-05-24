@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterbloc1/bloc/color/color_bloc.dart';
-import 'package:flutterbloc1/bloc/color/color_event.dart';
-import 'package:flutterbloc1/bloc/color/color_state.dart';
+import 'package:flutterbloc1/bloc/color/bloc.dart';
 
 void main() {
   runApp(MyApp());

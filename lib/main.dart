@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterbloc1/bloc/color/bloc.dart';
-import 'package:flutterbloc1/ui/color_switcher_page.dart';
+import 'package:flutterbloc1/ui/my_home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: ColorSwitcherPage(title: 'Color Switcher Page'),
+        home: MyHomePage(title: 'Home Page'),
       ),
     );
   }

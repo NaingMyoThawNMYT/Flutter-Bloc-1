@@ -2,23 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterbloc1/bloc/color/bloc.dart';
 
-class ColorSwitcherPage extends StatefulWidget {
+class ColorSwitcherPage extends StatelessWidget {
   ColorSwitcherPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
-  @override
-  _ColorSwitcherPageState createState() => _ColorSwitcherPageState();
-}
-
-class _ColorSwitcherPageState extends State<ColorSwitcherPage> {
   @override
   Widget build(BuildContext context) {
     // ignore: close_sinks
     final ColorBloc colorBloc = BlocProvider.of<ColorBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

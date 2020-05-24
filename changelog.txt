@@ -9,3 +9,4 @@
 24/05/2020
 ----------
 1. "bloc.dart" file is added under "bloc\color". Purpose is to reduce import statements.
+2. "MyHomePage" widget is refactored renamed to "ColorSwitcherPage" and move to under ui package.

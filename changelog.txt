@@ -11,3 +11,7 @@
 1. "bloc.dart" file is added under "bloc\color". Purpose is to reduce import statements.
 2. "MyHomePage" widget is refactored renamed to "ColorSwitcherPage" and move to under ui package.
 3. New "MyHomePage" widget is added with one option that goes to "ColorSwitcherPage" page.
+
+25/05/2020
+----------
+1. At "ColorSwitcherPage", BlocListener is added. Purpose is to know the usages of BlocListener.

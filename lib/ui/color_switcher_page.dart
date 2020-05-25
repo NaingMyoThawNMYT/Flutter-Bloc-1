@@ -22,13 +22,37 @@ class ColorSwitcherPage extends StatelessWidget {
             Expanded(
               child: BlocBuilder<ColorBloc, ColorState>(
                 builder: (context, state) {
-                  return Container(
-                    color: (state is ChangeColorState)
-                        ? state.color
-                        : Colors.black,
-                  );
+                  if (state is ChangeColorState) {
+                    return Container(color: state.color);
+                  } else {
+                    return Container(color: Colors.transparent);
+                  }
                 },
               ),
+            ),
+            // BlocListener should be used for functionality
+            // that needs to occur only in response to a state change
+            // such as navigation, showing a SnackBar,
+            // showing a Dialog, etc...
+            BlocListener<ColorBloc, ColorState>(
+              condition: (previousState, currentState) {
+                // "listener" will only work when this method return true
+                // so you can add condition here
+                return true;
+              },
+              listener: (context, state) {
+                if (state is ChangeColorState) {
+                  Scaffold.of(context)
+                    ..removeCurrentSnackBar()
+                    ..showSnackBar(
+                      SnackBar(
+                        content: Text('Color is changed'),
+                      ),
+                    );
+                }
+                // else...
+              },
+              child: Container(),
             ),
             Row(
               children: <Widget>[

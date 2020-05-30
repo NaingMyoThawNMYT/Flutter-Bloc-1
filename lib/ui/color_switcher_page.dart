@@ -21,6 +21,18 @@ class ColorSwitcherPage extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: BlocBuilder<ColorBloc, ColorState>(
+                condition: (previousState, currentState) {
+                  // "builder" will only work when this method return true
+                  // so you can add condition here
+                  if (previousState is ChangeColorState &&
+                      currentState is ChangeColorState) {
+                    // if same state and same value
+                    // then we don't need to update UI
+                    return previousState.color != currentState.color;
+                  }
+                  // if state changed then update UI
+                  return previousState != currentState;
+                },
                 builder: (context, state) {
                   if (state is ChangeColorState) {
                     return Container(color: state.color);
@@ -38,7 +50,14 @@ class ColorSwitcherPage extends StatelessWidget {
               condition: (previousState, currentState) {
                 // "listener" will only work when this method return true
                 // so you can add condition here
-                return true;
+                if (previousState is ChangeColorState &&
+                    currentState is ChangeColorState) {
+                  // if same state and same value
+                  // then we don't need to update UI
+                  return previousState.color != currentState.color;
+                }
+                // if state changed then update UI
+                return previousState != currentState;
               },
               listener: (context, state) {
                 if (state is ChangeColorState) {

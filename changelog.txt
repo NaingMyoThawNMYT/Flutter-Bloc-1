@@ -14,4 +14,9 @@
 
 25/05/2020
 ----------
-1. At "ColorSwitcherPage", BlocListener is added. Purpose is to know the usages of BlocListener.
+1. At "ColorSwitcherPage", "BlocListener" is added. Purpose is to know the usages of "BlocListener".
+
+30/05/2020
+----------
+1. At "ColorSwitcherPage", conditions are added to "BlocBuilder" and "BlocListener".
+   Purpose is to know the usages of "condition".
